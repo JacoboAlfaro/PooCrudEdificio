@@ -1,3 +1,13 @@
+<?php
+require_once("../../conexion.php");
+
+$id = $_GET['id'];
+
+$db = $con->prepare("SELECT * FROM porteros WHERE id = :id");
+$db->execute(['id' => $id]);
+$res = $db->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,28 +31,31 @@
         <div class="row py-3">
             <div class="col">
                 <div class="justify-content-center align-items-center vh-200 vw-200 w-25 mx-auto">
-                    <form method="post" action="">
+                    <form method="post" action="datosDbPortero.php" autocomplete="off">
                         <div class="mb-2">
-                            <label for="exampleInputEmail1" class="form-label">Identificaión</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="id" class="form-label">Identificación:</label>
+                            <input type="text" class="form-control" id="id" name="id" value="<?php echo $res['id']?>" readonly>
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputPassword1" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $res['nombre']?>" required>
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputPassword1" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="apellido" class="form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $res['apellido']?>" required>
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputPassword1" class="form-label">Turno</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="turno" class="form-label">Turno:</label>
+                            <input type="text" class="form-control" id="turno" name="turno" value="<?php echo $res['turno']?>" required>
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputPassword1" class="form-label">Bloque</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="bloque" class="form-label">Bloque:</label>
+                            <input type="text" class="form-control" id="bloque" name="bloque" value="<?php echo $res['bloque']?>" required>
                         </div>
-                        <a href="principalPortero.php" type="submit" class="btn btn-success d-flex d-flex justify-content-center align-items-center mx-auto mt-4">Actualizar</a>
+                        <div class="mb-2 d-flex d-flex justify-content-between gap-2">
+                            <a href="principalPortero.php" type="submit" class="btn btn-primary w-50 mt-4">Atrás</a>
+                            <button type="submit" class="btn btn-success w-50 mt-4" name="actualizar">Actualizar</button>
+                        </div>
                     </form>
                 </div>
             </div>

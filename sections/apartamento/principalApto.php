@@ -1,8 +1,8 @@
 <?php
-/* require_once("../../conexion.php");
-$comando = $con->query("SELECT * FROM habitantes ORDER BY id ASC");
+require_once("../../conexion.php");
+$comando = $con->prepare("SELECT * FROM apartamentos ORDER BY id ASC");
 $comando->execute();
-$resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
+$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 ?> 
 <!doctype html>
 <html lang="en">
@@ -32,6 +32,8 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
                         <li class="nav-item"><a href="../habitante/principalHabitante.php" class="nav-link" aria-current="page">Habitantes</a></li>
                         <li class="nav-item"><a href="../portero/principalPortero.php" class="nav-link">Porteros</a></li>
                         <li class="nav-item"><a href="principalApto.php" class="nav-link active">Apartamentos</a></li>
+                        <li class="nav-item"><a href="../../index.php" class="btn btn-outline-danger"">Cerrar sesión</a></li>
+
                     </ul>
                 </header>
             </div>
@@ -61,18 +63,18 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
                     </thead>
                     <tbody>
                          <?php
-                        #foreach($resultado as $columna){
+                        foreach($resultado as $columna){
                         ?>
                         <tr>
-                            <td><?php #echo $columna['id']?>1</td>
-                            <td><?php #echo $columna['nombre']?>A202</td>
-                            <td><?php #echo $columna['bloque']?>A</td>
-                            <td><?php #echo $columna['piso']?>2</td>
-                            <td><?php #echo $columna['num_cuartos']?>3</td>
-                            <td><a href="actualizarApto.php" class="btn btn-warning">Actualizar</a></td>
-                            <td><a href="principalApto.php" class="btn btn-danger">Eliminar</a></td>
+                            <td><?php echo $columna['id']?></td>
+                            <td><?php echo $columna['nombre']?></td>
+                            <td><?php echo $columna['bloque']?></td>
+                            <td><?php echo $columna['piso']?></td>
+                            <td><?php echo $columna['num_cuartos']?></td>
+                            <td><a href="actualizarApto.php?id=<?php echo $columna['id']?>" class="btn btn-warning">Actualizar</a></td>
+                            <td><a href="eliminarApto.php?id=<?php echo $columna['id']?>" class="btn btn-danger">Eliminar</a></td>
                         </tr>
-                        <?php # } ?>
+                        <?php  } ?>
                     </tbody>
                 </table>
             </div>

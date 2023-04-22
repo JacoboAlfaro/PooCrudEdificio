@@ -1,3 +1,12 @@
+<?php
+require_once("../../conexion.php");
+
+$id = $_GET['id'];
+
+$db = $con->prepare("SELECT * FROM apartamentos WHERE id = :id");
+$db->execute(['id' => $id]);
+$res = $db->fetch(PDO::FETCH_ASSOC);
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,28 +30,31 @@
         <div class="row py-3">
             <div class="col">
                 <div class="justify-content-center align-items-center vh-200 vw-200 w-25 mx-auto">
-                    <form method="post" action="">
+                    <form method="post" action="datosDbApto.php" autocomplete="off">
                         <div class="mb-2">
-                            <label for="exampleInputEmail1" class="form-label">Identificaión</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="id" class="form-label">Identificación:</label>
+                            <input type="text" class="form-control" id="id" name="id" value="<?php echo $res['id']?>" readonly>                        
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputPassword1" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre"  name="nombre" value="<?php echo $res['nombre']?>" required>
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputPassword1" class="form-label">Bloque</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="bloque" class="form-label">Bloque:</label>
+                            <input type="text" class="form-control" id="bloque"  name="bloque" value="<?php echo $res['bloque']?>" required>
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputPassword1" class="form-label">Piso</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="piso" class="form-label">Piso:</label>
+                            <input type="text" class="form-control" id="piso"  name="piso" value="<?php echo $res['piso']?>" required>
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputPassword1" class="form-label">Número de cuartos</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="num_cuartos" class="form-label">Número de cuartos:</label>
+                            <input type="text" class="form-control" id="num_cuartos"  name="num_cuartos" value="<?php echo $res['num_cuartos']?>" required>
                         </div>
-                        <a href="principalApto.php" type="submit" class="btn btn-success d-flex d-flex justify-content-center align-items-center mx-auto mt-4">Actualizar</a>
+                        <div class="mb-2 d-flex d-flex justify-content-between gap-2">
+                            <a href="principalApto.php" type="submit" class="btn btn-primary w-50 mt-4">Atrás</a>
+                            <button type="submit" class="btn btn-success w-50 mt-4" name="actualizar">Actualizar</button>
+                        </div>
                     </form>
                 </div>
             </div>

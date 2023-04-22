@@ -1,8 +1,8 @@
 <?php
-/* require_once("../../conexion.php");
-$comando = $con->query("SELECT * FROM porteros ORDER BY id ASC");
+require_once("../../conexion.php");
+$comando = $con->prepare("SELECT * FROM porteros ORDER BY id ASC");
 $comando->execute();
-$resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
+$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 ?> 
 <!doctype html>
 <html lang="en">
@@ -32,6 +32,8 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
                         <li class="nav-item"><a href="../habitante/principalHabitante.php" class="nav-link" aria-current="page">Habitantes</a></li>
                         <li class="nav-item"><a href="portero/principalPortero.php" class="nav-link active">Porteros</a></li>
                         <li class="nav-item"><a href="../apartamento/principalApto.php" class="nav-link">Apartamentos</a></li>
+                        <li class="nav-item"><a href="../../index.php" class="btn btn-outline-danger"">Cerrar sesión</a></li>
+
                     </ul>
                 </header>
             </div>
@@ -39,7 +41,7 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
         <!-- Fila 2 -->
         <div class="row py-3">
             <div class="col mx-auto d-flex align-items-center">
-                <h3 class="mx-auto">Porteros <br>
+                <h3 class="mx-auto">Porteros<br>
                     <a href="agregarPortero.php" type="button" class="btn btn-success d-flex align-items-center mt-4 mx-auto text-center justify-content-center">Agregar</a>
                 </h3>
             </div>
@@ -61,18 +63,18 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
                     </thead>
                     <tbody>
                          <?php
-                        #foreach($resultado as $columna){
+                        foreach($resultado as $columna){
                         ?>
                         <tr>
-                            <td><?php #echo $columna['id']?>2356956958</td>
-                            <td><?php #echo $columna['nombre']?>Pepe</td>
-                            <td><?php #echo $columna['apellido']?>Crayon</td>
-                            <td><?php #echo $columna['turno']?>Noche</td>
-                            <td><?php #echo $columna['bloque']?>D</td>
-                            <td><a href="actualizarPortero.php" class="btn btn-warning">Actualizar</a></td>
-                            <td><a href="principalportero.php" class="btn btn-danger">Eliminar</a></td>
+                            <td><?php echo $columna['id']?></td>
+                            <td><?php echo $columna['nombre']?></td>
+                            <td><?php echo $columna['apellido']?></td>
+                            <td><?php echo $columna['turno']?></td>
+                            <td><?php echo $columna['bloque']?></td>
+                            <td><a href="actualizarPortero.php?id=<?php echo $columna['id']?>" class="btn btn-warning">Actualizar</a></td>
+                            <td><a href="eliminarPortero.php?id=<?php echo $columna['id']?>" class="btn btn-danger">Eliminar</a></td>
                         </tr>
-                        <?php # } ?>
+                        <?php  } ?>
                     </tbody>
                 </table>
             </div>

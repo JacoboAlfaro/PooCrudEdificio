@@ -1,8 +1,8 @@
 <?php
-/* require_once("../../conexion.php");
-$comando = $con->query("SELECT * FROM habitantes ORDER BY id ASC");
+require_once("../../conexion.php");
+$comando = $con->prepare("SELECT * FROM habitantes ORDER BY id ASC");
 $comando->execute();
-$resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
+$resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
 ?> 
 <!doctype html>
 <html lang="en">
@@ -32,6 +32,8 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
                         <li class="nav-item"><a href="principalHabitante.php" class="nav-link active" aria-current="page">Habitantes</a></li>
                         <li class="nav-item"><a href="../portero/principalPortero.php" class="nav-link">Porteros</a></li>
                         <li class="nav-item"><a href="../apartamento/principalApto.php" class="nav-link">Apartamentos</a></li>
+                        <li class="nav-item"><a href="../../index.php" class="btn btn-outline-danger"">Cerrar sesión</a></li>
+
                     </ul>
                 </header>
             </div>
@@ -62,19 +64,19 @@ $resultado = $comando->fetchAll(PDO::FETCH_ASSOC); */
                     </thead>
                     <tbody>
                          <?php
-                        #foreach($resultado as $columna){
+                        foreach($resultado as $columna){
                         ?>
                         <tr>
-                            <td><?php #echo $columna['id']?>1054861564</td>
-                            <td><?php #echo $columna['nombre']?>Melon</td>
-                            <td><?php #echo $columna['apellido']?>Musk</td>
-                            <td><?php #echo $columna['bloque']?>H</td>
-                            <td><?php #echo $columna['num_apto']?>205</td>
-                            <td><?php #echo $columna['telefono']?>31043873443</td>
-                            <td><a href="actualizarHabitante.php" class="btn btn-warning">Actualizar</a></td>
-                            <td><a href="principalHabitante.php" class="btn btn-danger">Eliminar</a></td>
+                            <td><?php echo $columna['id']?></td>
+                            <td><?php echo $columna['nombre']?></td>
+                            <td><?php echo $columna['apellido']?></td>
+                            <td><?php echo $columna['bloque']?></td>
+                            <td><?php echo $columna['num_apto']?></td>
+                            <td><?php echo $columna['telefono']?></td>
+                            <td><a href="actualizarHabitante.php?id=<?php echo $columna['id']?>" class="btn btn-warning">Actualizar</a></td>
+                            <td><a href="eliminarHabitante.php?id=<?php echo $columna['id']?>" class="btn btn-danger">Eliminar</a></td>
                         </tr>
-                        <?php # } ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

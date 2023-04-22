@@ -36,4 +36,6 @@ Class Conexion {
 
 
 }
+$db = new Conexion();
+$con = $db->conn();
 ?>

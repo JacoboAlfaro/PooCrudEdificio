@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Crud Edificio</title>
   </head>
-  <body class="" style="background-color:#B3B6B7;">
+  <body class=""  style="background-image: url(img/ladrillo.jpg);">
     <!-- Contenedor -->
     <div class="container-fluid">
         <!-- Fila -->
@@ -27,6 +27,9 @@
                         <li class="nav-item"><a href="sections/habitante/principalHabitante.php" class="nav-link">Habitantes</a></li>
                         <li class="nav-item"><a href="sections/portero/principalPortero.php" class="nav-link">Porteros</a></li>
                         <li class="nav-item"><a href="sections/apartamento/principalApto.php" class="nav-link">Apartamentos</a></li>
+                        <li class="nav-item"><a href="index.php" class="btn btn-outline-danger"">Cerrar sesión</a></li>
+                        
+
 
                     </ul>
                 </header>
@@ -34,45 +37,45 @@
         </div>
         <div class="row">
             <div class="col-7">
-                <div class="card mb-4  mt-4" style="max-width: 800px;">
+                <div class="card mb-4  mt-4" style="max-width: 800px; border: 1px solid #676767; border-radius: 10px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                        <img src="img/hab.jpg" class="img-fluid rounded-start" alt="...">
+                            <img src="img/hab.jpg" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Habitantes</h5>
-                            <p class="card-text">Crud de los las personas que residen en un conjunto de edificos. <br> Más informacion <a href="sections/habitante/principalHabitante.php">aquí.</a></p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Habitantes</h5>
+                                <p class="card-text">Crud de los las personas que residen en un conjunto de edificos. <br> Más informacion <a href="sections/habitante/principalHabitante.php">aquí.</a></p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card mb-4" style="max-width: 800px;">
+                <div class="card mb-4" style="max-width: 800px; border: 1px solid #676767; border-radius: 10px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                        <img src="img/celador.jpg" class="img-fluid rounded-start" alt="...">
+                            <img src="img/celador.jpg" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Porteros</h5>
-                            <p class="card-text">Crud de las personas que cuidan el conjunto de edificios. <br> Más informacion <a href="sections/portero/principalPortero.php">aquí.</a></p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Porteros</h5>
+                                <p class="card-text">Crud de las personas que cuidan el conjunto de edificios. <br> Más informacion <a href="sections/portero/principalPortero.php">aquí.</a></p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card mb-4" style="max-width: 800px;">
+                <div class="card mb-4" style="max-width: 800px; border: 1px solid #676767; border-radius: 10px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                        <img src="img/apartamento.jpg" class="img-fluid rounded-start" alt="...">
+                            <img src="img/apartamento.jpg" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Apartamentos</h5>
-                            <p class="card-text">Crud de los apartamentos que hay en el conjunto de edificios. <br> Más informacion <a href="sections/apartamento/principalApto.php">aquí.</a></p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Apartamentos</h5>
+                                <p class="card-text">Crud de los apartamentos que hay en el conjunto de edificios. <br> Más informacion <a href="sections/apartamento/principalApto.php">aquí.</a></p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
