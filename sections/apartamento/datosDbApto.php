@@ -46,7 +46,7 @@ if(isset($_POST['agregar'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Crud Edificio</title>
   </head>
-  <body class=""  style="background-color:#B3B6B7;">
+  <body class=""  style="background-image: url(../../img/ladrillo.jpg);">
     <!-- Contenedor -->
     <div class="container-fluid">
         <!-- Fila 1 -->

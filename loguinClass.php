@@ -2,8 +2,8 @@
 
 include_once('conexion.php');
 
-class DatabaseProcess extends Conexion
-{
+class DatabaseProcess extends Conexion{
+
     private $user;
     private $pass;
 
@@ -29,8 +29,6 @@ class DatabaseProcess extends Conexion
         }
         return $usuarios;
     }
-
-
 
     public function login($user,$pass){
         try {
